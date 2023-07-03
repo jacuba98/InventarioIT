@@ -17,8 +17,8 @@
         <input type="text" name="name" id="name" value="{{ old('name', $inventory->name) }}">
     </div>
     <div>
-        <label for="quantity">Cantidad:</label>
-        <input type="number" name="quantity" id="quantity" value="{{ old('quantity', $inventory->quantity) }}">
+        <label for="equipo">Equipo:</label>
+        <input type="text" name="equipo" id="equipo" value="{{ old('equipo', $inventory->equipo) }}">
     </div>
     <button type="submit">Guardar</button>
 </form>

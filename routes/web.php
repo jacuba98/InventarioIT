@@ -8,14 +8,6 @@ use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
 
 
-Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
-Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
-Route::get('/inventory/{id}', [InventoryController::class, 'show'])->name('inventory.show');
-Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
-Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
-Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
-
 Route::get('/empleado', [EmpleadoController::class, 'index'])->name('empleado.index');
 Route::get('/empleado/create', [EmpleadoController::class, 'create'])->name('empleado.create');
 Route::post('/empleado', [EmpleadoController::class, 'store'])->name('empleado.store');
@@ -49,9 +41,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/inventario', function () {
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+    Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
+    Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+    Route::get('/inventory/{id}', [InventoryController::class, 'show'])->name('inventory.show');
+    Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+    Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
+    Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
+});
+/*Route::get('/inventory', function(){
+    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
+    Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
+    Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
+    Route::get('/inventory/{id}', [InventoryController::class, 'show'])->name('inventory.show');
+    Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
+    Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
+    Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
+})->middleware(['auth', 'verified'])->name('inventory');*/
+
+/*Route::get('/inventario', function () {
     return view('index');
-})->middleware(['auth', 'verified'])->name('inventario');
+})->middleware(['auth', 'verified'])->name('inventario');*/
 
 Route::middleware('registro')->group(function () {
     Route::get('/registro', [RegistroController::class, 'index'])->name('registro.index');

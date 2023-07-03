@@ -3,6 +3,6 @@
 
 <p>ID: {{ $inventory->id }}</p>
 <p>Nombre: {{ $inventory->name }}</p>
-<p>Cantidad: {{ $inventory->quantity }}</p>
+<p>Cantidad: {{ $inventory->equipo }}</p>
 
 <a href="{{ route('inventory.index') }}">Volver</a>
