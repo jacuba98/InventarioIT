@@ -4,6 +4,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RegistroController;
+use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
 
@@ -16,16 +17,6 @@ Route::get('/empleado/{id}/edit', [EmpleadoController::class, 'edit'])->name('em
 Route::put('/empleado/{id}', [EmpleadoController::class, 'update'])->name('empleado.update');
 Route::delete('/empleado/{id}', [EmpleadoController::class, 'destroy'])->name('empleado.destroy');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,19 +42,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
     Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
 });
-/*Route::get('/inventory', function(){
-    Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory.index');
-    Route::get('/inventory/create', [InventoryController::class, 'create'])->name('inventory.create');
-    Route::post('/inventory', [InventoryController::class, 'store'])->name('inventory.store');
-    Route::get('/inventory/{id}', [InventoryController::class, 'show'])->name('inventory.show');
-    Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
-    Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
-    Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
-})->middleware(['auth', 'verified'])->name('inventory');*/
 
-/*Route::get('/inventario', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('inventario');*/
+Route::get('/hoteles', function () {
+    $hotel = Hotel::all();
+    return view('hoteles/index', compact('hotel'));
+})->middleware(['auth', 'verified'])->name('hoteles');
 
 Route::middleware('registro')->group(function () {
     Route::get('/registro', [RegistroController::class, 'index'])->name('registro.index');

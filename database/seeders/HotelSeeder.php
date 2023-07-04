@@ -16,18 +16,22 @@ class HotelSeeder extends Seeder
     {
         DB::table('hoteles')->insert([
             'name' => 'Akumal',
+            'descripcion' => 'Luxury',
         ]);
 
         DB::table('hoteles')->insert([
             'name' => 'Coba',
+            'descripcion' => 'Grand',
         ]);
 
         DB::table('hoteles')->insert([
             'name' => 'Sian Ka´an',
+            'descripcion' => 'Luxury',
         ]);
 
         DB::table('hoteles')->insert([
             'name' => 'Tulum',
+            'descripcion' => 'Grand',
         ]);
     }
 }
