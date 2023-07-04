@@ -4,7 +4,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <!-- show.blade.php -->
-                    <h1>Detalles del elemento de inventario</h1>
+                    <h1>Detalles</h1>
 
                     <a href="{{ route('inventory.index') }}">Volver</a>
 
