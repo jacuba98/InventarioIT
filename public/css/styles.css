@@ -11,6 +11,21 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
 }
 
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  margin-top: 0;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #e9e9e9;
+}
+
 h5 {
   text-align: center;
   font-weight: bold;
@@ -28,7 +43,7 @@ h5 {
   padding: 8px;
   border: none;
   border-bottom: 3px solid #000000; /* Borde inferior */
-  border-radius: 15px;
+  border-radius: 5px;
   background-color: transparent; /* Fondo transparente */
   margin-bottom: 15px; /* Separación inferior */
 }
