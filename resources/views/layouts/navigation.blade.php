@@ -18,8 +18,8 @@
                     <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
                         {{ __('Inventory') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('empleados')">
-                        {{ __('Empleados') }}
+                    <x-nav-link :href="route('historial')" :active="request()->routeIs('historial')">
+                        {{ __('Historial') }}
                     </x-nav-link>
                     <x-nav-link :href="route('hoteles')" :active="request()->routeIs('hoteles')">
                         {{ __('Hoteles') }}

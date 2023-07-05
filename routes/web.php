@@ -4,6 +4,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RegistroController;
+use App\Models\Historial;
 use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
@@ -47,6 +48,15 @@ Route::get('/hoteles', function () {
     $hotel = Hotel::all();
     return view('hoteles/index', compact('hotel'));
 })->middleware(['auth', 'verified'])->name('hoteles');
+
+Route::get('/historial', function () {
+    //$historial = Historial::all();
+    $historial = Historial::with('user')->get();
+
+    //dd($historial);
+
+    return view('historial/index', compact('historial'));
+})->middleware(['auth', 'verified'])->name('historial');
 
 Route::middleware('registro')->group(function () {
     Route::get('/registro', [RegistroController::class, 'index'])->name('registro.index');

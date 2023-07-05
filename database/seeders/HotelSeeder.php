@@ -14,22 +14,22 @@ class HotelSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('hoteles')->insert([
+        DB::table('hotels')->insert([
             'name' => 'Akumal',
             'descripcion' => 'Luxury',
         ]);
 
-        DB::table('hoteles')->insert([
+        DB::table('hotels')->insert([
             'name' => 'Coba',
             'descripcion' => 'Grand',
         ]);
 
-        DB::table('hoteles')->insert([
+        DB::table('hotels')->insert([
             'name' => 'Sian Ka´an',
             'descripcion' => 'Luxury',
         ]);
 
-        DB::table('hoteles')->insert([
+        DB::table('hotels')->insert([
             'name' => 'Tulum',
             'descripcion' => 'Grand',
         ]);

@@ -10,4 +10,10 @@ class Inventory extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'equipo'];
+
+    public function historials()
+    {
+        return $this->hasMany(Historial::class, 'inventory_id');
+    }
+
 }
