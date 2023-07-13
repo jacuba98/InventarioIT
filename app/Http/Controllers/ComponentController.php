@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Component;
+use App\Models\Historial as ModelsHistorial;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ComponentController extends Controller
 {
@@ -27,7 +31,18 @@ class ComponentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $component = Component::create([
+            'no_equipo' => $request->no_equipo,
+            'equipo' => $request->equipo,
+        ]);
+
+        ModelsHistorial::create([
+            'type' => 'Alta',
+            'inventory_id' => $component->id,
+            'user_id' => Auth::user()->id
+        ]);
+
+        return redirect()->route('component.index')->with('success', 'El elemento de componente ha sido creado.');
     }
 
     /**

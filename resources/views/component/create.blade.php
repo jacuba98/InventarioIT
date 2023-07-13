@@ -13,11 +13,11 @@
                         </ul>
                     @endif
 
-                    <form action="{{ route('inventory.store') }}" method="POST" class="form-gp">
+                    <form action="{{ route('component.store') }}" method="POST" class="form-gp">
                         @csrf
                         <div>
-                            <label for="name" class="label-gp">Nombre:</label>
-                            <input type="text" name="name" id="name" value="{{ old('name') }}" class="input-gp">
+                            <label for="no_equipo" class="label-gp">No. Equipo:</label>
+                            <input type="text" name="no_equipo" id="no_equipo" value="{{ old('name') }}" class="input-gp">
                         </div>
                         <div>
                             <label for="equipo" class="label-gp">Equipo:</label>
