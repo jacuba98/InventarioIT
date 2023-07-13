@@ -4,6 +4,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\ComponentController;
 use App\Models\Historial;
 use App\Models\Hotel;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/inventory/{id}/edit', [InventoryController::class, 'edit'])->name('inventory.edit');
     Route::put('/inventory/{id}', [InventoryController::class, 'update'])->name('inventory.update');
     Route::delete('/inventory/{id}', [InventoryController::class, 'destroy'])->name('inventory.destroy');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/component', [ComponentController::class, 'index'])->name('component.index');
+    Route::get('/component/create', [ComponentController::class, 'create'])->name('component.create');
+    Route::post('/component', [ComponentController::class, 'store'])->name('component.store');
+    Route::get('/component/{id}', [ComponentController::class, 'show'])->name('component.show');
+    Route::get('/component/{id}/edit', [ComponentController::class, 'edit'])->name('component.edit');
+    Route::put('/component/{id}', [ComponentController::class, 'update'])->name('component.update');
+    Route::delete('/component/{id}', [ComponentController::class, 'destroy'])->name('component.destroy');
 });
 
 Route::get('/hoteles', function () {
